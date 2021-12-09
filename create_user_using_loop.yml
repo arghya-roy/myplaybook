@@ -5,8 +5,8 @@
   connection: ssh
   tasks:
           - name: add a list of user
-            user: name="{{items}}" state=present
-            with items:
-                  -suvo1
-                   suvo2
-                   suvo3
+            user: name="{{item}}" state=present
+            with_items:
+                 - suvo1
+                 - suvo2
+                 - suvo3
