@@ -1,0 +1,8 @@
+---
+- host: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+        -name: remove_httpd
+         service: name=httpd state=absent
