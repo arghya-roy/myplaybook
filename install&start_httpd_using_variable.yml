@@ -1,0 +1,12 @@
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+      - packagename: httpd
+  tasks:
+      - name: install_httpd
+        yum: name="{{packagename}}" state=present
+        service: name="{{packagename}}" state=started
+    
