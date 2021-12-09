@@ -1,12 +1,17 @@
 ---
 - hosts: demo
-  user: ansible
   become: yes
-  connection: ssh
   vars:
-      - packagename: httpd
+    - username: arghya
+    - home: /home/sammy
+    - pkg: httpd
   tasks:
-      - name: install_httpd
-        yum: name="{{packagename}}" state=present
-        service: name="{{packagename}}" state=started
+    - name: print variables
+      debug:
+              msg: "Username: {{ username }}, Home dir: {{ home }}"
+    - name: install httpd
+      yum: name="{{ pkg }}" state=present
+    - name: start httpd
+      service: name="{{ pkg }}" state=started
+
     
