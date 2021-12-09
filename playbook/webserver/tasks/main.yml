@@ -1,0 +1,4 @@
+---
+- name: install_httpd
+  yum: name=httpd state=present
+  notify: start httpd
