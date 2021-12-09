@@ -1,0 +1,12 @@
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+      - name: install of httpd
+        yum: name=httpd state=installed
+        notify: start httpd
+  handlers:
+      - name: start httpd
+        service: name=httpd state=started
