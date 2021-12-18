@@ -20,5 +20,7 @@
           apt: name=jenkins state=present
         - name: start_jenkins
           service: name=jenkins state=started
+#ansible-playbook installing-jenkins/playbook.yml --extra-var="host=localhost user=ubuntu" 
+
         
         
