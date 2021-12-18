@@ -1,0 +1,22 @@
+---
+- hosts: {{host}}
+  user: ubuntu
+  become: yes
+  connection: ssh
+  tasks:
+        - name: update
+          shell: "apt update -y"
+        - name: install java jdk
+          apt: name=default-jdk state=present
+        - name: install java jre
+          apt: name=default-jre state=present
+        - name: download package
+          shell: "wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -"
+        - name: download package2
+          shell: "sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'"
+        - name: update
+          shell: "apt update -y"
+        - name: install jenkins
+          apt: name=jenkins state=started
+        
+        
