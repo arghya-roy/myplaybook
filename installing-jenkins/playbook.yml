@@ -17,6 +17,6 @@
         - name: update
           shell: "apt update -y"
         - name: install jenkins
-          apt: name=jenkins state=started
+          apt: name=jenkins state=present
         
         
