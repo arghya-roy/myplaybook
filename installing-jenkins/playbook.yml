@@ -1,5 +1,5 @@
 ---
-- hosts: {{host}}
+- hosts: "{{host}}"
   user: ubuntu
   become: yes
   connection: ssh
